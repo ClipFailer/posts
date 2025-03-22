@@ -36,4 +36,4 @@
 </ul>
 
 <h2>Дополнительная информация</h2>
-<p>В качестви API использовался <a href="https://jsonplaceholder.typicode.com/">sonplaceholder api</a>. Поэтому все посты изначально берутся по данному <a href="https://jsonplaceholder.typicode.com/posts">пути</a>. Из-за этого, при обновлении страницы все внесённые изменения обнуляются.</p>
+<p>В качестви API использовался <a href="https://jsonplaceholder.typicode.com/">jsonplaceholder api</a>. Поэтому все посты изначально берутся по данному <a href="https://jsonplaceholder.typicode.com/posts">пути</a>. Из-за этого, при обновлении страницы все внесённые изменения обнуляются.</p>
