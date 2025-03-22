@@ -33,9 +33,7 @@ export default function ProductsPage() {
 		setSort(e.target.value as SortEnum)
 	}
 
-	const {
-		isLoading: isProductLoading,
-	} = useGetAllProductsQuery()
+	const { isLoading: isProductLoading } = useGetAllProductsQuery()
 
 	const products = useSelector(selectProducts)
 
@@ -63,7 +61,7 @@ export default function ProductsPage() {
 			/>
 
 			{filter !== FilterEnum.FAVORITES
-				? sortedProducts.length > 0 && (
+				? sortedProducts.length > 10 && (
 						<Pagination
 							currentPage={currentPage}
 							changePage={setCurrentPage}
