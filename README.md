@@ -1,54 +1,39 @@
-# React + TypeScript + Vite
+<h1>Frontend-приложение для размещения постов</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2><a href="https://posts-theta-six.vercel.app/" target="_blank">Рабочее приложение на vercel</a></h2>
 
-Currently, two official plugins are available:
+<h2>Стек</h2>
+<p>React - typescript, react-hook-form,  |  Redux, rtk-query  |  tailwind css</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Основные функции приложения</h2>
+<ul>
+  <li>Просмотр доступных постов</li>
+  <li>Добавление постов в избранное</li>
+  <li>Добавление постов</li>
+  <li>Удаление постов</li>
+  <li>Просмотр страницы поста</li>
+  <li>Сортировка постов
+    <ul>
+      <li>Все посты / Избранные</li>
+      <li>Поиск
+        <ul>
+          <li>По названию</li>
+          <li>По содержимому</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-## Expanding the ESLint configuration
+<h2>Запуск приложения</h2>
+<ul>
+  <li>
+    Для запуска на локальном сервере: <code>npm run dev</code>
+  </li>
+  <li>
+    Для сборки: <code>npm run build</code>
+  </li>
+</ul>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+<h2>Дополнительная информация</h2>
+<p>В качестви API использовался <a href="https://jsonplaceholder.typicode.com/">sonplaceholder api</a>. Поэтому все посты изначально берутся по данному <a href="https://jsonplaceholder.typicode.com/posts">пути</a>. Из-за этого, при обновлении страницы все внесённые изменения обнуляются.</p>
