@@ -34,9 +34,7 @@ export default function ProductsPage() {
 	}
 
 	const {
-		data,
 		isLoading: isProductLoading,
-		error: productError,
 	} = useGetAllProductsQuery()
 
 	const products = useSelector(selectProducts)

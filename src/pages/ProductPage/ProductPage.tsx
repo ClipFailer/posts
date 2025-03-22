@@ -31,7 +31,7 @@ export default function ProductPage() {
 
 	const dispatch = useDispatch()
 
-	const toggle = (e: React.MouseEvent<HTMLButtonElement>, product: Product) => {
+	const toggle = (product: Product) => {
 		dispatch(toggleFavorites(product))
 	}
 
@@ -70,7 +70,7 @@ export default function ProductPage() {
 				</button>
 				<button
 					className="font-bold text-3xl cursor-pointer hover:animate-pulse"
-					onClick={e => toggle(e, product!)}
+					onClick={() => toggle(product!)}
 				>
 					{favorites.some(p => p.id === product?.id) ? (
 						<RiDislikeFill />
