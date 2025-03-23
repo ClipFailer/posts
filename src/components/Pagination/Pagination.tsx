@@ -36,6 +36,7 @@ export default function Pagination({
 				<FaArrowLeft />
 			</button>
 			<h1 className="text-3xl">
+				{/* Получение количества страниц с продуктами */}
 				{currentPage} / {Math.ceil(total / limit)}
 			</h1>
 			<button

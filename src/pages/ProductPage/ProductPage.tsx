@@ -15,6 +15,7 @@ import {
 } from '../../store/products/productsSlice'
 
 import Notification from '../../components/Notification/Notification'
+import { useTimeout } from '../../hooks/useTimeout'
 import { Product } from '../../types'
 
 export default function ProductPage() {
@@ -25,6 +26,7 @@ export default function ProductPage() {
 	const favorites = useSelector(selectFavorites)
 	const products = useSelector(selectProducts)
 
+	// Получаем нужный продукт из переданных параметров
 	const product = useMemo(() => {
 		return products.find(p => p.id.toString() === params.id)
 	}, [products, params.id])
@@ -38,15 +40,9 @@ export default function ProductPage() {
 	const remove = () => {
 		dispatch(removeProduct(product!))
 		dispatch(removeFavorite(product!))
-		successNotification()
-	}
-
-	const successNotification = () => {
-		setIsNotification(true)
-		setTimeout(() => {
-			setIsNotification(false)
+		useTimeout(setIsNotification, true, setIsNotification, false, 2000, () => {
 			navigate('/')
-		}, 2000)
+		})
 	}
 
 	return (
@@ -64,12 +60,14 @@ export default function ProductPage() {
 				>
 					<FaEdit />
 				</button>
+
 				<button
 					className="text-3xl bg-red-600 px-2 py-1 rounded-xl font-bold cursor-pointer hover:bg-red-700 transition-colors"
 					onClick={remove}
 				>
 					<MdDeleteForever />
 				</button>
+
 				<button
 					className="font-bold text-3xl cursor-pointer hover:animate-pulse"
 					onClick={() => toggle(product!)}

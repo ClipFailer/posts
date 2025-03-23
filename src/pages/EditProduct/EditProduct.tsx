@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import Notification from '../../components/Notification/Notification'
+import { useTimeout } from '../../hooks/useTimeout'
 import { updateFavorite } from '../../store/favorites/favoritesSlice'
 import {
 	selectProducts,
@@ -33,15 +34,7 @@ export default function EditProduct() {
 		data.userId = product!.userId
 		dispatch(updateProduct(data))
 		dispatch(updateFavorite(data))
-		successNotification()
-	}
-
-	const successNotification = () => {
-		setIsNotification(true)
-		setTimeout(() => {
-			setIsNotification(false)
-			navigate('/')
-		}, 2000)
+		useTimeout(setIsNotification, true, setIsNotification, false, 2000, () => {navigate('/')})
 	}
 
 	return (

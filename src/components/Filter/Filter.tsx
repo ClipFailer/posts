@@ -18,12 +18,15 @@ export default function Filter({
 	return (
 		<div className="flex items-center justify-between gap-5 mb-5 flex-col md:flex-row">
 			<div className="flex flex-col gap-2">
+				{/* Поиск */}
 				<input
 					type="text"
 					placeholder="Поиск"
 					className="p-2 rounded-xl outline-2 focus:outline-blue-600"
 					onChange={e => changeSearchQuery(e)}
 				/>
+
+				{/* Фильтр поиска */}
 				<select
 					className="rounded-xl"
 					defaultValue={SortEnum.TITLE}
@@ -42,6 +45,8 @@ export default function Filter({
 					</option>
 				</select>
 			</div>
+
+			{/* Фильтр избранного */}
 			<div className="flex gap-5">
 				<label>
 					<input

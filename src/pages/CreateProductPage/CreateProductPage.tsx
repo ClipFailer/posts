@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { v4 } from 'uuid'
 import Notification from '../../components/Notification/Notification'
+import { useTimeout } from '../../hooks/useTimeout'
 import { addProduct } from '../../store/products/productsSlice'
 
 type FormData = Product
@@ -26,15 +27,9 @@ export default function CreateProductPage() {
 		// data.userId = '1'
 		data.id = v4()
 		dispatch(addProduct(data))
-		successNotification()
-	}
-
-	const successNotification = () => {
-		setIsNotification(true)
-		setTimeout(() => {
-			setIsNotification(false)
+		useTimeout(setIsNotification, true, setIsNotification, false, 2000, () => {
 			navigate('/')
-		}, 2000)
+		})
 	}
 
 	return (

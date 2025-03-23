@@ -15,6 +15,8 @@ export default function ProductsPage() {
 	const [currentPage, setCurrentPage] = useState(1)
 	const limit = 10
 
+	const products = useSelector(selectProducts)
+
 	const [filter, setFilter] = useState<FilterEnum>(FilterEnum.ALL)
 	const [searchQuery, setSearchQuery] = useState<string>('')
 	const [sort, setSort] = useState<SortEnum>(SortEnum.TITLE)
@@ -35,15 +37,14 @@ export default function ProductsPage() {
 
 	const { isLoading: isProductLoading } = useGetAllProductsQuery()
 
-	const products = useSelector(selectProducts)
-
+	// Получение уже отсортированного массива продуктов
 	const sortedProducts = useMemo(
 		() => useSortedProducts(products!, favorites, filter, searchQuery, sort),
 		[products, favorites, filter, searchQuery]
 	)
 
 	return (
-		<div className="relative">
+		<div>
 			<h1 className="text-center text-3xl font-bold mb-5">Посты</h1>
 
 			<Filter

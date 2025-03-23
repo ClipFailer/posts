@@ -11,6 +11,7 @@ interface Props {
 export default function ProductsList({ products, currentPage, limit }: Props) {
 	// const { data: users, isLoading, error } = useGetAllUsersQuery()
 
+	// Делим массив продуктов для пагинации
 	const cuttedProducts = useMemo(() => {
 		const start = (currentPage - 1) * limit
 		const end = start + limit
