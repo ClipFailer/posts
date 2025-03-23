@@ -38,11 +38,13 @@ export default function ProductItem({ data }: Props) {
 
 	return (
 		<div
-			className="flex flex-col justify-between bg-blue-600 p-5 rounded-xl shadow-2xl  hover:bg-blue-700 transition-colors cursor-pointer"
+			className="flex flex-col justify-between bg-blue-600 p-5 rounded-xl shadow-2xl hover:bg-blue-700 transition-colors cursor-pointer"
 			onClick={() => navigate(`/products/${data.id}`)}
 		>
 			<div>
-				<h1 className="text-2xl font-bold mb-2 text-center">{data.title}</h1>
+				<h1 className="text-xl font-bold mb-2 text-center  truncate">
+					{data.title}
+				</h1>
 				<h2 className="text-xl font-bold"></h2>
 			</div>
 			{/* <p>Создатель поста: {creator?.name}</p> */}

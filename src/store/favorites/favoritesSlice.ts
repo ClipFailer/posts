@@ -31,12 +31,19 @@ export const favoritesSlice = createSlice({
 			if (isExist)
 				state.favorites = state.favorites.filter(p => p.id !== product.id)
 		},
+		updateFavorite(state, action: PayloadAction<Product>) {
+			const product = action.payload
+			const index = state.favorites.findIndex(p => p.id === product.id)
+
+			state.favorites[index] = product
+		},
 	},
 })
 
 export default favoritesSlice.reducer
 
-export const { toggleFavorites, removeFavorite } = favoritesSlice.actions
+export const { toggleFavorites, removeFavorite, updateFavorite } =
+	favoritesSlice.actions
 
 export const selectFavorites = (state: RootState) =>
 	state.favoritesSlice.favorites

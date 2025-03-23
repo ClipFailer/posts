@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import Notification from '../../components/Notification/Notification'
+import { updateFavorite } from '../../store/favorites/favoritesSlice'
 import {
 	selectProducts,
 	updateProduct,
@@ -31,6 +32,7 @@ export default function EditProduct() {
 		data.id = product!.id
 		data.userId = product!.userId
 		dispatch(updateProduct(data))
+		dispatch(updateFavorite(data))
 		successNotification()
 	}
 

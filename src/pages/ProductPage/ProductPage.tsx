@@ -51,7 +51,9 @@ export default function ProductPage() {
 
 	return (
 		<div className="bg-neutral-900 p-10 rounded-xl mb-10">
-			<h1 className="text-3xl font-bold text-center mb-5">{product?.title}</h1>
+			<h1 className="text-xl font-bold text-center mb-5 break-all">
+				{product?.title}
+			</h1>
 			{/* <h2 className="text-xl font-bold mb-5">Автор {user?.name}</h2> */}
 			<p>{product?.body}</p>
 
