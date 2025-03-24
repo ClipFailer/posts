@@ -51,7 +51,7 @@ export default function ProductPage() {
 				{product?.title}
 			</h1>
 			{/* <h2 className="text-xl font-bold mb-5">Автор {user?.name}</h2> */}
-			<p>{product?.body}</p>
+			<p className="break-all">{product?.body}</p>
 
 			<div className="flex justify-end gap-5 mt-10">
 				<button
